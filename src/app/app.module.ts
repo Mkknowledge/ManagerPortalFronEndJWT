@@ -10,6 +10,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { BoardManagerComponent } from './board-manager/board-manager.component';
 import { BoardEmployeeComponent } from './board-employee/board-employee.component';
 
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +24,11 @@ import { BoardEmployeeComponent } from './board-employee/board-employee.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
