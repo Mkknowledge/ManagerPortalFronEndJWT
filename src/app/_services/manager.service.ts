@@ -15,15 +15,11 @@ export class ManagerService {
     return this.http.get(API_URL + 'all', { responseType: 'text' });
   }
 
-  getUserBoard(): Observable<any> {
-    return this.http.get(API_URL + 'user', { responseType: 'text' });
+  getManagerBoard(): Observable<any> {
+    return this.http.get(API_URL + 'manager', { responseType: 'text' });
   }
 
-  getModeratorBoard(): Observable<any> {
-    return this.http.get(API_URL + 'mod', { responseType: 'text' });
-  }
-
-  getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'admin', { responseType: 'text' });
+  getEmployeeBoard(): Observable<any> {
+    return this.http.get(API_URL + 'employee', { responseType: 'text' });
   }
 }

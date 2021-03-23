@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ManagerService } from '../_services/manager.service';
 
 @Component({
   selector: 'app-board-manager',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./board-manager.component.css']
 })
 export class BoardManagerComponent implements OnInit {
+  content = '';
+  constructor(private managerService: ManagerService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit() {
+    this.managerService.getManagerBoard().subscribe(
+      data => {
+        this.content = data;
+      },
+      err => {
+        this.content = JSON.parse(err.error).message;
+      }
+    );
   }
 
 }
